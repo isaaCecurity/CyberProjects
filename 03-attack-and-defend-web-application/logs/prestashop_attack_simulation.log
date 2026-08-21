@@ -1,0 +1,14 @@
+﻿[Mon Aug 17 02:05:58 UTC 2026] Attack simulation against PrestaShop 9.0.3 (WAF ACTIVE)
+--- A1: SQLi via front-office search ---
+GET /prestashop/index.php?controller=search&s=' OR '1'='1 -> HTTP 403
+GET search UNION SELECT -> HTTP 403
+--- A2: XSS via search ---
+GET search <script>alert(1)</script> -> HTTP 403
+--- A3: Path traversal ---
+GET /prestashop/../dvwa/config -> HTTP 403
+--- A4: leftover /install probe ---
+GET /prestashop/install/ -> HTTP 403
+--- A5: webservice/API without key ---
+GET /prestashop/api/ -> HTTP 404
+--- CONTROL: legit search (must pass) ---
+GET search 'mug' -> HTTP 302
