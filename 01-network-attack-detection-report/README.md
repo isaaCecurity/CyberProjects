@@ -1,4 +1,4 @@
-# Assignment 1 — Network Attack Detection & Reporting
+# Network Attack Detection & Reporting
 
 A practical network-security lab covering honeypot deployment, network reconnaissance, attack capture, and defensive analysis. The lab was implemented on AWS EC2 rather than local VirtualBox machines.
 
